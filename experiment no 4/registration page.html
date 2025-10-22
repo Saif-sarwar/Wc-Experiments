@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <!-- Load Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Using Inter font as a default */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom styles for error/success messages */
+        .message-box {
+            display: none; /* Hidden by default */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+        }
+        .message-box.error {
+            display: block;
+            background-color: #fef2f2; /* red-50 */
+            color: #b91c1c; /* red-700 */
+        }
+        .message-box.success {
+            display: block;
+            background-color: #f0fdf4; /* green-50 */
+            color: #15803d; /* green-700 */
+        }
+    </style>
+    <!-- Import Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Create Your Account</h1>
+
+        <!-- Registration Form -->
+        <form id="registrationForm" novalidate>
+            <div class="space-y-4">
+                <!-- First Name -->
+                <div>
+                    <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                    <input type="text" id="firstName" name="firstName" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="John">
+                </div>
+
+                <!-- Last Name -->
+                <div>
+                    <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Doe">
+                </div>
+
+                <!-- E-mail ID -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail ID</label>
+                    <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="you@example.com">
+                </div>
+
+                <!-- Mobile Number -->
+                <div>
+                    <label for="mobile" class="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="1234567890">
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input type="password" id="password" name="password" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;">
+                </div>
+
+                <!-- Address -->
+                <div>
+                    <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                    <textarea id="address" name="address" rows="3" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 resize-none" placeholder="123 Main St, Anytown, USA"></textarea>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors mt-6">
+                Register
+            </button>
+
+            <!-- Message Box for Errors or Success -->
+            <div id="messageBox" class="message-box">
+                <!-- Validation messages will be injected here by JavaScript -->
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Wait for the DOM to be fully loaded before running the script
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('registrationForm');
+            const messageBox = document.getElementById('messageBox');
+
+            // Add a submit event listener to the form
+            form.addEventListener('submit', (event) => {
+                // Prevent the form from submitting the traditional way
+                event.preventDefault();
+
+                // Clear previous messages
+                messageBox.innerHTML = '';
+                messageBox.className = 'message-box'; // Reset classes
+
+                // Get values from form fields
+                const firstName = document.getElementById('firstName').value.trim();
+                const lastName = document.getElementById('lastName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const mobile = document.getElementById('mobile').value.trim();
+                const password = document.getElementById('password').value.trim();
+                const address = document.getElementById('address').value.trim();
+
+                // Store error messages
+                let errors = [];
+
+                // --- Validation Rules ---
+
+                // 1. First Name: Alphabets only, length >= 6
+                const nameRegex = /^[A-Za-z]+$/;
+                if (firstName.length < 6) {
+                    errors.push('First Name must be at least 6 characters long.');
+                } else if (!nameRegex.test(firstName)) {
+                    errors.push('First Name must contain only alphabets.');
+                }
+
+                // 2. Last Name: Not empty
+                if (lastName === '') {
+                    errors.push('Last Name cannot be empty.');
+                }
+
+                // 3. E-mail ID: Standard pattern
+                // A simple regex for email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    errors.push('Please enter a valid E-mail ID (e.g., name@domain.com).');
+                }
+
+                // 4. Mobile Number: 10 digits only
+                const mobileRegex = /^\d{10}$/;
+                if (!mobileRegex.test(mobile)) {
+                    errors.push('Mobile Number must contain exactly 10 digits.');
+                }
+
+                // 5. Password: Length >= 6
+                if (password.length < 6) {
+                    errors.push('Password must be at least 6 characters long.');
+                }
+
+                // 6. Address: Not empty
+                if (address === '') {
+                    errors.push('Address cannot be empty.');
+                }
+
+                // --- Display Messages ---
+                if (errors.length > 0) {
+                    // If there are errors, show them
+                    messageBox.innerHTML = errors.join('<br>');
+                    messageBox.classList.add('error');
+                } else {
+                    // If no errors, show success message
+                    messageBox.innerHTML = 'Registration Successful! Welcome.';
+                    messageBox.classList.add('success');
+                    
+                    // Optionally, you could reset the form
+                    // form.reset();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
