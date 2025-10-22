@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Bookstore</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-4">
+        <h1>BookDepo</h1>
+        <nav>
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container my-4">
+        <section class="text-center mb-4">
+            <input type="text" class="form-control d-inline-block w-50" placeholder="Search books...">
+            <button class="btn btn-dark ml-2">Search</button>
+        </section>
+
+        <section class="featured-books">
+            <h2 class="text-center mb-4">Featured Books</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="C:\Users\Saif\OneDrive\Desktop\WC\chronicle.jpg" class="card-img-top" alt="Book Cover: Chronicle Of Narnia by C.S. Lewis">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Chronicle Of Narnia</h5>
+                            <p class="card-text">C.S. Lewis</p>
+                            <p class="card-text">500Rs</p>
+                            <button class="btn btn-dark">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="C:\Users\Saif\OneDrive\Desktop\WC\harry.jpg" class="card-img-top" alt="Book Cover: Harry Potter And Deadly Hallows by J.K. Rowling">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Harry Potter And Deadly Hallows</h5>
+                            <p class="card-text">J.K. Rowling</p>
+                            <p class="card-text">600Rs</p>
+                            <button class="btn btn-dark">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="C:\Users\Saif\OneDrive\Desktop\WC\nameofwind.jpg" class="card-img-top" alt="The Name Of The Wind by Patrick Rothfus">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">The Name Of The Wind</h5>
+                            <p class="card-text">Patrick Rothfus</p>
+                            <p class="card-text">450Rs</p>
+                            <button class="btn btn-dark">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
