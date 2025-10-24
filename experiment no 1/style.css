@@ -1,0 +1,186 @@
+/* ---- Global Styles ---- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h1, h2, h3 {
+    color: #004a99; /* College Blue */
+}
+
+a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+/* ---- Header & Navigation ---- */
+header {
+    background: #004a99; /* Dark Blue */
+    color: #ffffff;
+    padding: 20px 0;
+    border-bottom: 4px solid #fdb913; /* College Gold */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    color: #ffffff;
+    margin: 0;
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-left: 25px;
+}
+
+nav a {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: #fdb913; /* Gold hover */
+}
+
+/* ---- Main Content Area ---- */
+main {
+    background: #ffffff;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ---- Homepage Hero ---- */
+.hero {
+    background-image: url('https://via.placeholder.com/1200x400.png?text=Welcome+to+Our+Campus');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 30px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #555; /* Fallback */
+}
+
+.hero h2 {
+    color: white;
+    font-size: 3rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* ---- Table Styling (Department Page) ---- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #004a99;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* ---- List Styling (Facility Page) ---- */
+.facility-list {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+}
+
+.facility-list li {
+    background: url('https://via.placeholder.com/20x20.png?text=+') no-repeat left center; /* Custom "bullet" */
+    background-size: 20px;
+    padding-left: 35px; /* Space for the icon */
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    background-color: #fdfdfd;
+    padding: 15px 15px 15px 35px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+/* ---- Form Styling (Contact Page) ---- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Important for padding to work correctly */
+}
+
+button {
+    background-color: #004a99;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #003366; /* Darker blue */
+}
+
+/* ---- Footer ---- */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 30px;
+    color: #777;
+    border-top: 1px solid #e0e0e0;
+}
