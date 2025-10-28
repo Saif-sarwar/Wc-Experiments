@@ -1,0 +1,136 @@
+/* --- Global Reset & Typography --- */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif; /* Use Inter or a default clean font */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f3f4f6; /* Equivalent to bg-gray-100 */
+    color: #1f2937; /* Equivalent to text-gray-800 */
+    padding: 0;
+}
+
+/* --- Utility Classes Simulation --- */
+
+/* App container */
+.min-h-screen {
+    min-height: 100vh;
+}
+.p-4 { padding: 1rem; }
+.sm\:p-8 { padding: 2rem; } /* For slightly larger screens */
+.max-w-7xl { max-width: 80rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.space-y-6 > * + * { margin-top: 1.5rem; }
+.gap-6 { gap: 1.5rem; }
+
+/* --- Card Component Styles --- */
+.bg-white { background-color: #ffffff; }
+.rounded-xl { border-radius: 0.75rem; }
+.p-6 { padding: 1.5rem; }
+.shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+.transition-all { transition: all 0.3s ease; }
+.transform:hover { transform: translateY(-2px); } /* Hover effect */
+.hover\:shadow-2xl:hover { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+
+/* Card header and icons */
+.border-b { border-bottom: 1px solid #e5e7eb; }
+.pb-2 { padding-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.text-indigo-600 { color: #4f46e5; }
+.font-semibold { font-weight: 600; }
+.text-gray-800 { color: #1f2937; }
+
+/* --- Button Component Styles --- */
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    transition: all 0.15s ease-in-out;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.5); /* Focus ring simulation */
+}
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Primary Button */
+.bg-indigo-600 { background-color: #4f46e5; color: #ffffff; }
+.hover\:bg-indigo-700:hover { background-color: #4338ca; }
+
+/* Secondary Button (Gray) */
+.bg-gray-200 { background-color: #e5e7eb; color: #4b5563; }
+.hover\:bg-gray-300:hover { background-color: #d1d5db; }
+
+/* Outline Button */
+.border-indigo-600 { border: 1px solid #4f46e5; color: #4f46e5; background-color: #ffffff; }
+.hover\:bg-indigo-50:hover { background-color: #f0f1ff; }
+
+/* --- Data & Form Fields --- */
+input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    transition: border-color 0.15s;
+}
+input:focus, textarea:focus {
+    border-color: #4f46e5; /* focus:border-indigo-500 */
+    box-shadow: 0 0 0 1px #4f46e5; /* focus:ring-indigo-500 */
+}
+
+/* Specific background styles */
+.bg-indigo-50 { background-color: #f7f7ff; }
+.bg-green-50 { background-color: #f0fff4; }
+.bg-yellow-50 { background-color: #fffbeb; }
+
+/* Marked/Pending Status Tags */
+.bg-green-100 { background-color: #d1fae5; color: #065f46; } /* Marked */
+.bg-yellow-100 { background-color: #fef3c7; color: #b45309; } /* Pending */
+.rounded-full { border-radius: 9999px; }
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+.py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.inline-flex { display: inline-flex; align-items: center; }
+.text-sm { font-size: 0.875rem; }
+
+/* Fixed Overlay (Modal) */
+.fixed { position: fixed; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.bg-opacity-75 { background-color: rgba(0, 0, 0, 0.75); }
+.z-50 { z-index: 50; }
+.max-h-\[90vh\] { max-height: 90vh; }
+.overflow-y-auto { overflow-y: auto; }
+
+/* Pre-formatted content box */
+pre {
+    white-space: pre-wrap;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+}
+
+/* Grid Layouts */
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+/* Media query for md (768px) */
+@media (min-width: 768px) {
+    .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .md\:col-span-2 { grid-column: span 2 / span 2; }
+}
+
+/* Spinner for loading state */
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
